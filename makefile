@@ -1,5 +1,14 @@
-.PHONY: doc
+.PHONY: clean, doc
 
-README.doc: guessinggame.sh
-	sed -n -e '2,$$s/^#\(.*\)/\1/p' <guessinggame.sh >README.md
+DATETIME = $(shell date -Is)
+
+README.md: guessinggame.sh
+	echo "THE AWESOME GUESSING GAME" > $@
+	echo "README.md created $(DATETIME)" >> $@
+	echo "guessinggame.sh have $(shell wc -l < $<) lines." >> $@
+
+doc: README.md
+
+clean:
+	rm README.md
 
