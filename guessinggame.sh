@@ -19,7 +19,7 @@ function validate_input() {
 	done
 }
 
-secret=$(ls | wc -l)
+secret=$(ls -a| wc -l)
 guess=-1
 echo -n "How many files are in this directory"
 while [ $guess -ne $secret ]
